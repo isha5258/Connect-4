@@ -5,15 +5,15 @@
 //// Create a grid in css for chips to be shown in. Similar to tic tac toe, but expanded to a 6row and 7 column grid.
     //// grid-column: repeat (7, )
 
-// State variables in JS.
-    //let winner, playerTurn, boardArray
+// // State variables in JS.
+////     let winner, playerTurn, boardArray
 
-// Add cached elements References.
-    //div ALL squares  
-        //this will be used to determine winner
-    //h2 message 
-        // init () message will say click a square to put first chip
-        // message will then tell whose players turn it is 
+// // Add cached elements References.
+    // //div ALL squares  
+        // //this will be used to determine winner
+    // //h2 message 
+        // // init () message will say click a square to put first chip
+        // // message will then tell whose players turn it is 
 
 // Add event listeners for button clicks for replay button and  handleClick events.
     // Replay -- on click return game state to init () state
@@ -98,18 +98,44 @@ const winningCombos = [
   [13, 19, 25, 31], [ 19, 25, 31, 37],
   [20, 26, 32, 38]
 ]
-
-
+// console.log(winningCombos);
 /**------------------ Variables (state) -------------- */
 let winner, playerTurn, boardArray
 
 
 /**-------------- Cached Element References ---------- */
-
-
+let squares = document.querySelectorAll('.squares')
+let messageEl = document.querySelector('#message')
+let replay = document.querySelector('#replay-button')
+let board = document.querySelector('.board')
+// console.log(squares);
+// console.log(messageEl);
+// console.log(replay);
 
 /**------------------- Event Listeners --------------- */
+replay.addEventListener('reset', init)
 
-
+board.addEventListener('click', handleClick)
 
 /**---------------------- Functions ------------------ */
+init ()
+
+function init () {
+  //make Message return to intial state 
+  messageEl.textContent = 'Click a Square to Start'
+  //make boardArray return to null in all its indexes
+  let boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,]
+  //make winner null
+  winner = null
+
+  render()
+}
+
+function render () {
+
+}
+
+function handleClick (evt) {
+  console.log(evt.target)
+}
+
