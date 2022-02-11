@@ -67,3 +67,20 @@
 // Swap colors of a single chip if successful.
 // Success will be determined with a Math.floor(Math.random().
 // Optional -  implement an animation that will show the chips fall from the top once the players click the column they want.
+/**-------------------- constants ---------------------*/
+
+
+
+/**------------------ Variables (state) -------------- */
+
+
+
+/**-------------- Cached Element References ---------- */
+
+
+
+/**------------------- Event Listeners --------------- */
+
+
+
+/**---------------------- Functions ------------------ */
