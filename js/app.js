@@ -15,21 +15,21 @@
         // // init () message will say click a square to put first chip
         // // message will then tell whose players turn it is 
 
-// Add event listeners for button clicks for replay button and  handleClick events.
-    // Replay -- on click return game state to init () state
-    // handleClick -- target evt.target.id (div squares)
+// // Add event listeners for button clicks for replay button and  handleClick events.
+ //   // Replay -- on click return game state to init () state
+ //   // handleClick -- target evt.target.id (div squares)
 
 // write stated functions (handleclick and init)
     //dont write inside fuctions yet
 
 // console.log everything so far to make sure it's working.
 
-// Add initial state function and add necessary variables. 
-    // board array [null, null, etc]
-    // winner = null
-    // reset button = hidden
-    //render()
-    //player turn = -1 (player 1)
+//// Add inital state function and add necessary variables. 
+//    // board array [null, null, etc]
+//    // winner = null
+//    // reset button = hidden
+//    //render()
+    ////player turn = -1 (player 1)
 
 // console.log
 
@@ -124,18 +124,36 @@ function init () {
   //make Message return to intial state 
   messageEl.textContent = 'Click a Square to Start'
   //make boardArray return to null in all its indexes
-  let boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,]
+  boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,]
+
   //make winner null
   winner = null
+  // player turn
+  playerTurn = -1
+  // hide replay button
+  replay.setAttribute('hidden', true)
 
   render()
 }
 
-function render () {
+function render() {
+ // iterate over the boardArray and change the html div text to show which squares are who's
+  boardArray.forEach((square, idx) => {
 
+  })
+  
+  // State of game :
+      // Winner, tie(unlikely), and whose turn
 }
 
 function handleClick (evt) {
-  console.log(evt.target)
+
+//Not sure if this code will work yet
+  // console.log(evt.target.id)
+  // if (evt.target !== board) {
+  //   const newTarget = evt.target.id
+    
+  // }
+  
 }
 
