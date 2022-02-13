@@ -178,11 +178,13 @@ function handleClick(evt) {
   squares.forEach((square) => {
     let squareIndex = parseInt(evt.target.id.replace('sq', ''))
     // change square index to show whose clicked square (1 or -1)
+    
     if (boardArray[squareIndex] === -1 || boardArray[squareIndex] === 1) {
       return
     } else if (winner !== null) {
       return
     }
+    console.log(squareIndex);
     //remove the hidden attribute of the replay button
     replay.removeAttribute('hidden')
     // determine whose turn it is 
@@ -204,11 +206,12 @@ function handleClick(evt) {
 //   const newTarget = evt.target.id
 
 // }
-
 function getWinner() {
+  //this code is not creating a winner
   for (let i = 0; i < winningCombos.length; i++) {
-    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]] === 3))
-      return boardArray[i][0]
+    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
+      return boardArray[winningCombos[i][0]]
+    }
     if (boardArray.includes(null)){
       return null
     } else {
