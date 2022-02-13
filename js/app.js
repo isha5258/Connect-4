@@ -168,12 +168,24 @@ function render() {
 
 function handleClick (evt) {
   
+  let squareIndex = parseInt(evt.target.id.replace('sq', ''))
+
+  console.log(squareIndex)
+  //if the [index - 7] of the event target is null evt.target.id = evt.target.id -7
+  chipPosition()
+  
+  // if (boardArray[squareIndex - 7] === null) {
+  // boardArray[squareIndex - 7] = `${playerTurn === 1 ? '1' : '-1'}`
+  // }
+  
 //Not sure if this code will work yet
   // console.log(evt.target.id)
   // if (evt.target !== board) {
   //   const newTarget = evt.target.id
-    
-  // }
   
+  // }
 }
 
+function chipPosition (){
+
+}
