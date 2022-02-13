@@ -124,12 +124,12 @@ function init () {
   //make Message return to intial state 
   messageEl.textContent = 'Click a Square to Start'
   //make boardArray return to null in all its indexes
-  boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,]
+  boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
   //make winner null
   winner = null
   // player turn
-  playerTurn = -1
+  playerTurn = 1
   // hide replay button
   replay.setAttribute('hidden', true)
 
@@ -138,16 +138,36 @@ function init () {
 
 function render() {
  // iterate over the boardArray and change the html div text to show which squares are who's
+  let squareColor
   boardArray.forEach((square, idx) => {
 
+  if (square === 1) {
+    squareColor = 'red'
+  } else if ( square === -1) {
+    squareColor = 'blue'
+  } else if (square === null) {
+    squareColor = 'white'
+
+  }
+  squares[idx].style.backgroundColor = squareColor
   })
   
   // State of game :
       // Winner, tie(unlikely), and whose turn
+  if (!winner) {
+    messageEl.textContent = `It is ${playerTurn === 1 ? "Player Red's" : "Player Blue's"} turn`
+    messageEl.style.color = `${playerTurn === 1 ? "red" : "blue"}`
+  } else if (winner === "T") {
+    messageEl.textContent = "It's a Tie! That's unfortunate, but let's try again!"
+    messageEl.style.color = 'black'
+  } else {
+    messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
+    messageEl.style.color = `${winner === 1 ? 'red' : 'blue'}`
+  }
 }
 
 function handleClick (evt) {
-
+  
 //Not sure if this code will work yet
   // console.log(evt.target.id)
   // if (evt.target !== board) {
