@@ -206,7 +206,15 @@ function handleClick(evt) {
 // }
 
 function getWinner() {
-
+  for (let i = 0; i < winningCombos.length; i++) {
+    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]] === 3))
+      return boardArray[i][0]
+    if (boardArray.includes(null)){
+      return null
+    } else {
+      return 'T'
+    }
+  }
 }
 
 // function chipPosition() {
