@@ -90,7 +90,7 @@ const winningCombos = [
   [1, 9, 17, 25], [9, 17, 25, 33], [17, 25, 33, 41],
   [2, 10, 18, 26], [10, 18, 26, 34],
   [3, 11, 19, 27],
-  //Diagnol winning combos (Example: / ) 
+  //Diagnal winning combos (Example: / ) 
   [3, 9, 15, 21],
   [4, 10, 16, 22], [10, 16, 22, 28],
   [5, 11, 17, 23], [11, 17, 23, 29], [17, 23, 29, 35],
@@ -100,7 +100,7 @@ const winningCombos = [
 ]
 // console.log(winningCombos);
 /**------------------ Variables (state) -------------- */
-let winner, playerTurn, boardArray
+let winner, playerTurn, boardArray, player_1, player_2 
 
 
 /**-------------- Cached Element References ---------- */
@@ -127,6 +127,9 @@ function init() {
   messageEl.textContent = 'Click a Square to Start'
   //make boardArray return to null in all its indexes
   boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+  // player_1 = []
+  // player_2 = []
+
 
   //make winner null
   winner = null
@@ -178,13 +181,13 @@ function handleClick(evt) {
   squares.forEach((square) => {
     let squareIndex = parseInt(evt.target.id.replace('sq', ''))
     // change square index to show whose clicked square (1 or -1)
-    
     if (boardArray[squareIndex] === -1 || boardArray[squareIndex] === 1) {
       return
     } else if (winner !== null) {
       return
     }
-    console.log(squareIndex);
+    
+    // console.log(squareIndex);
     //remove the hidden attribute of the replay button
     replay.removeAttribute('hidden')
     // determine whose turn it is 
@@ -195,7 +198,7 @@ function handleClick(evt) {
     winner = getWinner()
     //render() at the end of the handleClick function
     render()
-    console.log(squareIndex)
+    // console.log(squareIndex)
   })
 }
 
@@ -208,20 +211,34 @@ function handleClick(evt) {
 // }
 function getWinner() {
   //this code is not creating a winner
+  // if(playerTurn === -1)
+  //   {
+  //     player_2.push(squareIndex);
+  //     console.log(player_2)
+  //   }
+  //   if(playerTurn === 1)
+  //   {
+  //     player_1.push(squareIndex);
+  //     console.log(player_1);
+  //   }
+
   for (let i = 0; i < winningCombos.length; i++) {
-    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
+    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4)
+    {
       return boardArray[winningCombos[i][0]]
-    }
+    } 
+  }
     if (boardArray.includes(null)){
       return null
     } else {
       return 'T'
     }
+    
   }
-}
+
 
 // function chipPosition() {
-//   boardArray.forEach((square, idx) => {
+//   
 //     if (square - 7 === null) {
 //       square[idx - 7] = `${playerTurn === 1 ? '1' : '-1'}`
 //       square = null
@@ -231,3 +248,4 @@ function getWinner() {
 //   })
 // }
 // console.log(chipPosition()
+
