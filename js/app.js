@@ -100,7 +100,7 @@ const winningCombos = [
 ]
 // console.log(winningCombos);
 /**------------------ Variables (state) -------------- */
-let winner, playerTurn, boardArray, player_1, player_2 
+let winner, playerTurn, boardArray, player_1, player_2
 
 
 /**-------------- Cached Element References ---------- */
@@ -116,7 +116,7 @@ let board = document.querySelector('.board')
 replay.addEventListener('click', init)
 
 
-board.addEventListener('click', handleClick)
+board.addEventListener('click', handleClick) 
 
 /**---------------------- Functions ------------------ */
 init()
@@ -149,7 +149,7 @@ function render() {
     } else if (square === null) {
       squareColor = 'white'
     }
-    
+
     squares[idx].style.backgroundColor = squareColor
     // console.log(square);
   })
@@ -166,109 +166,94 @@ function render() {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? 'red' : 'blue'}`
   }
-  
+
 }
 
 function handleClick(evt) {
   let id = parseInt(evt.target.id.replace('sq', ''))
-  // squares.forEach((square) => {
-    
-    // change square index to show whose clicked square (1 or -1)
-    if (boardArray[id] === -1 || boardArray[id] === 1) {
-      return
-    } else if (winner !== null) {
-      return
-    } else {
-      if (boardArray[id] === null) {
+
+  if (boardArray[id] === -1 || boardArray[id] === 1) {
+    return
+  } else if (winner !== null) {
+    return
+  } else {
+    if (boardArray[id] === null) {
       chipPosition(id)
       console.log(id)
     }
   }
+  //remove the hidden attribute of the replay button
+  replay.removeAttribute('hidden')
+  //change player
+  playerTurn *= -1
+  //check for winner with a winning function
+  winner = getWinner()
   
-    replay.removeAttribute('hidden')
-
-    
-
-    
-    // console.log(squareIndex);
-    //remove the hidden attribute of the replay button
-    
-    // determine whose turn it is 
-    // boardArray[id] = playerTurn
-    //player 1 or -1
-    playerTurn *= -1
-    //check for winner with a winning function
-    winner = getWinner()
-    //render() at the end of the handleClick function
-    render()
-    // console.log(squareIndex)
+  if (evt.target === board) {
+    return 
   }
-  // )
-// }
+
+  render()
+}
 
 
 //Not sure if this code will work yet
 // console.log(evt.target.id)
-// if (evt.target !== board) {
-//   const newTarget = evt.target.id
 
-// }
+
 function getWinner() {
 
   for (let i = 0; i < winningCombos.length; i++) {
-    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4)
-    {
+    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
       return boardArray[winningCombos[i][0]]
-    } 
-  }
-    if (boardArray.includes(null)){
-      return null
-    } else {
-      return 'T'
     }
-    
   }
+  if (boardArray.includes(null)) {
+    return null
+  } else {
+    return 'T'
+  }
+
+}
 
 
 function chipPosition(id) {
-  
+
   // while (boardArray[id] = null) {
   //   i - 7;
   //   console.log(boardArray)
   // }
-// check the last square in column 
+
+  // check the last square in column for null
+  //find the index the user clicked on
+  //for each index - 7 of clicked index 
+  // check for value or null
 
 
-  // for (let i = 0; i < boardArray.length; i++) {
-    //find the index the user clicked on
-    //for each index - 7 of clicked index 
-      // check for value or null
-    
-
-    if (boardArray[id + 35] === null) {
-      boardArray[id + 35] = playerTurn
-      return
-    } else if (boardArray[id + 28] === null) {
-      boardArray[id + 28] = playerTurn
-      boardArray[id] = null
-      return
-    } else if (boardArray[id + 21] === null) {
-      boardArray[id + 21] = playerTurn
-      boardArray[id] = null
-      return
-    } else if (boardArray[id + 14] === null) {
-      boardArray[id + 14] = playerTurn
-      boardArray[id] = null
-      return
-    } else if (boardArray[id + 7] === null) {
-      boardArray[id + 7] = playerTurn
-      boardArray[id] = null
-      return
-    } else { 
-      boardArray[id] = playerTurn
-      return
-    }
-    console.log(id)
+  if (boardArray[id + 35] === null) {
+    boardArray[id + 35] = playerTurn
+    return
+  } else if (boardArray[id + 28] === null) {
+    boardArray[id + 28] = playerTurn
+    boardArray[id] = null
+    return
+  } else if (boardArray[id + 21] === null) {
+    boardArray[id + 21] = playerTurn
+    boardArray[id] = null
+    return
+  } else if (boardArray[id + 14] === null) {
+    boardArray[id + 14] = playerTurn
+    boardArray[id] = null
+    return
+  } else if (boardArray[id + 7] === null) {
+    boardArray[id + 7] = playerTurn
+    boardArray[id] = null
+    return
+  } else {
+    boardArray[id] = playerTurn
+    return
   }
-  
+  console.log(id)
+}
+
 
