@@ -153,12 +153,7 @@ function render() {
     } else if (square === null) {
       squareColor = 'white'
     }
-    // if (square - 7 === null) {
-    //   square[idx - 7] = `${playerTurn === 1 ? '1' : '-1'}`
-    //   square = null
-    // } else {
-    //   square = `${playerTurn === 1 ? '1' : '-1'}`
-    // }
+    
     squares[idx].style.backgroundColor = squareColor
     // console.log(square);
   })
@@ -175,18 +170,28 @@ function render() {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? 'red' : 'blue'}`
   }
+  console.log(boardArray)
 }
 
 function handleClick(evt) {
+  let squareIndex = parseInt(evt.target.id.replace('sq', ''))
   squares.forEach((square) => {
-    let squareIndex = parseInt(evt.target.id.replace('sq', ''))
+    
     // change square index to show whose clicked square (1 or -1)
     if (boardArray[squareIndex] === -1 || boardArray[squareIndex] === 1) {
       return
     } else if (winner !== null) {
       return
     }
-    
+  
+  
+    if (boardArray[squareIndex] === null) {
+      chipPosition(squareIndex)
+      render()
+      
+    }
+
+    console.log(squareIndex)
     // console.log(squareIndex);
     //remove the hidden attribute of the replay button
     replay.removeAttribute('hidden')
@@ -210,17 +215,6 @@ function handleClick(evt) {
 
 // }
 function getWinner() {
-  //this code is not creating a winner
-  // if(playerTurn === -1)
-  //   {
-  //     player_2.push(squareIndex);
-  //     console.log(player_2)
-  //   }
-  //   if(playerTurn === 1)
-  //   {
-  //     player_1.push(squareIndex);
-  //     console.log(player_1);
-  //   }
 
   for (let i = 0; i < winningCombos.length; i++) {
     if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4)
@@ -237,15 +231,33 @@ function getWinner() {
   }
 
 
-// function chipPosition() {
-//   
-//     if (square - 7 === null) {
-//       square[idx - 7] = `${playerTurn === 1 ? '1' : '-1'}`
-//       square = null
-//     } else {
-//       square = `${playerTurn === 1 ? '1' : '-1'}`
-//     }
-//   })
-// }
-// console.log(chipPosition()
+function chipPosition(squareIndex) {
+  
+  for (let i = 0; i < boardArray.length; i++) {
+    //find the index the user clicked on
+    //for each index - 7 of clicked index 
+      // check for value or null
+  
+    if (boardArray[squareIndex - 35] === null) {
+      boardArray[squareIndex - 35] = playerTurn
+      return
+    } else if (boardArray[squareIndex - 28] === null) {
+      boardArray[squareIndex - 28] = playerTurn
+      return
+    } else if (boardArray[squareIndex - 21] === null) {
+      boardArray[squareIndex - 21] = playerTurn
+      return
+    } else if (boardArray[squareIndex - 14] === null) {
+      boardArray[squareIndex - 14] = playerTurn
+      return
+    } else if (boardArray[squareIndex - 7] === null) {
+      boardArray[squareIndex - 7] = playerTurn
+      return
+    } else { 
+      boardArray[squareIndex] = playerTurn
+      return
+    }
+    
+  }
+}
 
