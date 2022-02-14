@@ -144,10 +144,13 @@ function render() {
 
     if (square === 1) {
       squareColor = 'red'
+      squares[idx].style.opacity = 1
     } else if (square === -1) {
       squareColor = 'blue'
+      squares[idx].style.opacity = 1
     } else if (square === null) {
       squareColor = 'white'
+      squares[idx].style.opacity = .2
     }
 
     squares[idx].style.backgroundColor = squareColor
