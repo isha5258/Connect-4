@@ -28,7 +28,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 1, 1.5, 2.5)),url(https://cdn.pixabay.com/photo/2012/03/03/23/06/wall-21534__480.jpg);
+background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 1, 1.5, 2.5)),url();
 background-size: 50%;
 }
 h1 {
