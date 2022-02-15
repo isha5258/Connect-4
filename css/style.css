@@ -28,12 +28,13 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 1, 1.5, 2.0)),url(background_wall.jpg);
+background: linear-gradient(rgba(57, 57, 57, 0.5), rgba(0, .125, .25, .5)),url(background_wall.jpg);
 background-size: 100%;
 }
 h1 {
+color: grey;
 font-size: 6rem;
-text-shadow: 0 0 0 100px black, 0 0 0 10px black;
+text-shadow: 0 0 10px black, 0 0 20px black, 0px 0px 30px black;
 }
 
 h2 {

@@ -161,13 +161,14 @@ function render() {
   // Winner, tie(unlikely), and whose turn
   if (!winner) {
     messageEl.textContent = `It is ${playerTurn === 1 ? "Player Red's" : "Player Blue's"} turn`
-    messageEl.style.color = `${playerTurn === 1 ? "red" : "blue"}`
+    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 20px black, 0px 0px 30px black' : ''}`
+    messageEl.style.color = `${playerTurn === 1 ? "red" : "#0063FF"}`
   } else if (winner === "T") {
     messageEl.textContent = "It's a Tie! That's unfortunate, but let's try again!"
     messageEl.style.color = 'black'
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
-    messageEl.style.color = `${winner === 1 ? 'red' : 'blue'}`
+    messageEl.style.color = `${winner === 1 ? 'red' : '#0063FF'}`
   }
 
 }
