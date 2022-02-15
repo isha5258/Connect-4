@@ -48,6 +48,12 @@ main {
   font-size: 1.2rem;
   popover-font-size: 1rem;
 }
+  .popover-body {
+    font-size: 2rem;
+    padding: 1rem 1rem;
+    color: #212529;
+    border-radius: 0;
+}
 
 h1 {
 color: #667D83;
