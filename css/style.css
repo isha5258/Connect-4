@@ -37,22 +37,35 @@ main {
   align-content: center;
 }
 #replay-button {
-  margin: 0 110% 0 0;
+  margin: 0 115% 0 0;
   width: 7rem;
+  font-size: 1.2rem;
 }
 #info-Btn{
-  margin: 0 0 0 110%;
+  margin: 0 0 0 125%;
   border: 0;
   height: 3rem;
   width: 9rem;
   font-size: 1.2rem;
   popover-font-size: 1rem;
 }
+
+.popover {
+  background-color: whitesmoke ;
+}
+
+.popover-header {
+  background-color: #B7B7B7;
+}
+
   .popover-body {
     font-size: 2rem;
     padding: 1rem 1rem;
     color: #212529;
     border-radius: 0;
+    width: 100%;
+    opacity:;
+    background-color: #D8D8D8;
 }
 
 h1 {
@@ -81,5 +94,6 @@ border-radius: 50%;
 font-size: 8vmin;
 text-align: center;
 vertical-align: middle;
+/* box-shadow: 1px 1px px 1px #0ff */
 }
 
