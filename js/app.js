@@ -108,6 +108,9 @@ let squares = document.querySelectorAll('.squares')
 let messageEl = document.querySelector('#message')
 let replay = document.querySelector('#replay-button')
 let board = document.querySelector('.board')
+ popover = new bootstrap.Popover(document.querySelector('#info-Btn'), {
+  container: 'body'
+})
 // console.log(squares);
 // console.log(messageEl);
 // console.log(replay);
@@ -143,10 +146,10 @@ function render() {
   boardArray.forEach((square, idx) => {
 
     if (square === 1) {
-      squareColor = 'red'
+      squareColor = '#AC0011'
       squares[idx].style.opacity = 1
     } else if (square === -1) {
-      squareColor = 'blue'
+      squareColor = '#0073BF'
       squares[idx].style.opacity = 1
     } else if (square === null) {
       squareColor = 'white'
@@ -161,14 +164,14 @@ function render() {
   // Winner, tie(unlikely), and whose turn
   if (!winner) {
     messageEl.textContent = `It is ${playerTurn === 1 ? "Player Red's" : "Player Blue's"} turn`
-    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 20px black, 0px 0px 30px black' : ''}`
-    messageEl.style.color = `${playerTurn === 1 ? "red" : "#0063FF"}`
+    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '2px 0 10px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
+    messageEl.style.color = `${playerTurn === 1 ? "#CC2727" : "#0073BF"}`
   } else if (winner === "T") {
     messageEl.textContent = "It's a Tie! That's unfortunate, but let's try again!"
     messageEl.style.color = 'black'
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
-    messageEl.style.color = `${winner === 1 ? 'red' : '#0063FF'}`
+    messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
   }
 
 }
