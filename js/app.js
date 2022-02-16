@@ -165,7 +165,7 @@ function render() {
     messageEl.style.color = `${playerTurn === 1 ? "#CC2727" : "#0073BF"}`
   } else if (winner === "T") {
     messageEl.textContent = "Tie! That's unfortunate, but let's try again!"
-    messageEl.style.color = 'black'
+    messageEl.style.color = '#667D83'
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
@@ -190,7 +190,6 @@ function handleClick(evt) {
   } else {
     if (boardArray[id] === null) {
       chipPosition(id)
-      console.log(id)
     }
   }
   
