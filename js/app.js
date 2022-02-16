@@ -118,7 +118,7 @@ popover = new bootstrap.Popover(document.querySelector('#info-Btn'), {
 /**------------------- Event Listeners --------------- */
 replay.addEventListener('click', init)
 
-board.addEventListener('click', handleClick) 
+board.addEventListener('click', handleClick)
 
 /**---------------------- Functions ------------------ */
 init()
@@ -170,7 +170,7 @@ function render() {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
     confetti.start(1500)
-    messageEl.className = `${winner === 1 ? 'animate__animated animate__heartBeat' : 'animate__animated animate__heartBeat'}`
+    messageEl.className = `${winner === 1 || winner === -1 ? 'animate__heartBeat' : ''}`
   }
 }
 
@@ -199,26 +199,6 @@ function handleClick(evt) {
   
   render()
 }
-
-
-//Not sure if this code will work yet
-// console.log(evt.target.id)
-
-
-function getWinner() {
-
-  for (let i = 0; i < winningCombos.length; i++) {
-    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
-      return boardArray[winningCombos[i][0]]
-    }
-  }
-  if (boardArray.includes(null)) {
-    return null
-  } else {
-    return 'T'
-  }
-}
-
 
 function chipPosition(id) {
   // while (boardArray[id] = null) {
@@ -251,4 +231,17 @@ function chipPosition(id) {
   console.log(id)
 }
 
+function getWinner() {
+
+  for (let i = 0; i < winningCombos.length; i++) {
+    if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
+      return boardArray[winningCombos[i][0]]
+    }
+  }
+  if (boardArray.includes(null)) {
+    return null
+  } else {
+    return 'T'
+  }
+}
 
