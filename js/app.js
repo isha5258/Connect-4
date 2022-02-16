@@ -135,7 +135,8 @@ function init() {
   playerTurn = 1
   // hide replay button
   replay.setAttribute('hidden', true)
-
+  //remove class name from winner message
+  messageEl.className = ""
   render()
 }
 
@@ -168,6 +169,8 @@ function render() {
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
+    confetti.start(1500)
+    messageEl.className = `${winner === 1 ? 'animate__animated animate__heartBeat' : 'animate__animated animate__heartBeat'}`
   }
 }
 
