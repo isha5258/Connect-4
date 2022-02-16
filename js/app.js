@@ -124,6 +124,7 @@ board.addEventListener('click', handleClick)
 init()
 
 function init() {
+  
   //make Message return to intial state 
   messageEl.textContent = 'Click a Square to Start'
   //make boardArray return to null in all its indexes
@@ -154,23 +155,25 @@ function render() {
     } else if (square === null) {
       squareColor = 'white'
       squares[idx].style.opacity = .2
-      
     }
     squares[idx].style.backgroundColor = squareColor
   })
   // State of game :
   if (!winner) {
-    messageEl.textContent = `It is ${playerTurn === 1 ? "Player Red's" : "Player Blue's"} turn`
+    messageEl.textContent = `${playerTurn === 1 ? " Red's" : " Blue's"} turn`
     messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 15px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
     messageEl.style.color = `${playerTurn === 1 ? "#CC2727" : "#0073BF"}`
   } else if (winner === "T") {
-    messageEl.textContent = "It's a Tie! That's unfortunate, but let's try again!"
+    messageEl.textContent = "Tie! That's unfortunate, but let's try again!"
     messageEl.style.color = 'black'
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
     confetti.start(1500)
     messageEl.className = `${winner === 1 || winner === -1 ? 'animate__heartBeat' : ''}`
+    const tadaAudio = new Audio(`../Sounds/tada.mp3`)
+    tadaAudio.volume = .07
+    tadaAudio.play()
   }
 }
 
@@ -207,7 +210,7 @@ function chipPosition(id) {
   // }
   if (boardArray[id + 35] === null) {
     boardArray[id + 35] = playerTurn
-    return
+    return 
   } else if (boardArray[id + 28] === null) {
     boardArray[id + 28] = playerTurn
     boardArray[id] = null
