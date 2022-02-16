@@ -1,6 +1,6 @@
 Connect 4:
 
-
+Connect 4 was first released in 1974 by Milton Bradly Company
 
 
 

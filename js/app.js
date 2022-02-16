@@ -172,7 +172,7 @@ function render() {
     confetti.start(1500)
     messageEl.className = `${winner === 1 || winner === -1 ? 'animate__heartBeat' : ''}`
     const tadaAudio = new Audio(`../Sounds/tada.mp3`)
-    tadaAudio.volume = .07
+    tadaAudio.volume = .1
     tadaAudio.play()
   }
 }
