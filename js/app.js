@@ -164,8 +164,9 @@ function render() {
     messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 15px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
     messageEl.style.color = `${playerTurn === 1 ? "#CC2727" : "#0073BF"}`
   } else if (winner === "T") {
-    messageEl.textContent = "Tie! That's unfortunate, but let's try again!"
+    messageEl.textContent = "Tie! Let's try again!"
     messageEl.style.color = '#667D83'
+    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 15px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
   } else {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`

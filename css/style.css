@@ -49,10 +49,11 @@ main {
 #info-Btn{
   margin: 0 0 0 115%;
   border: 0;
-  height: 3rem;
-  width: 9rem;
-  font-size: 1.2rem;
+  height: 4rem;
+  width: 12rem;
+  font-size: .9rem;
   popover-font-size: 1rem;
+  font-family: 'Press Start 2P', sans-serif;
 }
 
 .popover {
@@ -75,6 +76,7 @@ main {
 h1 {
   color: #667D83;
   font-size: 6rem;
+  font-family: 'Press Start 2P', sans-serif;
   text-shadow: 0 0 10px black, 0 0 20px black, 0px 0px
   30px black; 
   animation: bounceInDown;
@@ -83,6 +85,7 @@ h1 {
 
 h2 {
   font-size: 2.5rem;
+  font-family: 'Press Start 2P', sans-serif;
   text-shadow: 0 0 0 10px black;
   margin-top: 2rem;
   margin-bottom: 0
@@ -107,6 +110,11 @@ div {
   text-align: center;
   vertical-align: middle;
   
+}
+
+#replay-button {
+  font-family: 'Press Start 2P', sans-serif;
+  width: 10vmin
 }
 
 .animate__fadeInDownBig {
