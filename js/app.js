@@ -108,7 +108,7 @@ let squares = document.querySelectorAll('.squares')
 let messageEl = document.querySelector('#message')
 let replay = document.querySelector('#replay-button')
 let board = document.querySelector('.board')
- popover = new bootstrap.Popover(document.querySelector('#info-Btn'), {
+popover = new bootstrap.Popover(document.querySelector('#info-Btn'), {
   container: 'body'
 })
 // console.log(squares);
@@ -117,7 +117,6 @@ let board = document.querySelector('.board')
 
 /**------------------- Event Listeners --------------- */
 replay.addEventListener('click', init)
-
 
 board.addEventListener('click', handleClick) 
 
@@ -154,17 +153,14 @@ function render() {
     } else if (square === null) {
       squareColor = 'white'
       squares[idx].style.opacity = .2
+      
     }
-
     squares[idx].style.backgroundColor = squareColor
-    // console.log(square);
   })
-
   // State of game :
-  // Winner, tie(unlikely), and whose turn
   if (!winner) {
     messageEl.textContent = `It is ${playerTurn === 1 ? "Player Red's" : "Player Blue's"} turn`
-    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '2px 0 10px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
+    messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 15px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
     messageEl.style.color = `${playerTurn === 1 ? "#CC2727" : "#0073BF"}`
   } else if (winner === "T") {
     messageEl.textContent = "It's a Tie! That's unfortunate, but let's try again!"
@@ -173,10 +169,12 @@ function render() {
     messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
   }
-
 }
 
 function handleClick(evt) {
+  if (evt.target === board) {
+    return 
+  } 
   let id = parseInt(evt.target.id.replace('sq', ''))
 
   if (boardArray[id] === -1 || boardArray[id] === 1) {
@@ -189,17 +187,13 @@ function handleClick(evt) {
       console.log(id)
     }
   }
-  //remove the hidden attribute of the replay button
+  
   replay.removeAttribute('hidden')
-  //change player
+
   playerTurn *= -1
-  //check for winner with a winning function
+
   winner = getWinner()
   
-  if (evt.target === board) {
-    return 
-  }
-
   render()
 }
 
@@ -220,23 +214,14 @@ function getWinner() {
   } else {
     return 'T'
   }
-
 }
 
 
 function chipPosition(id) {
-
   // while (boardArray[id] = null) {
   //   i - 7;
   //   console.log(boardArray)
   // }
-
-  // check the last square in column for null
-  //find the index the user clicked on
-  //for each index - 7 of clicked index 
-  // check for value or null
-
-
   if (boardArray[id + 35] === null) {
     boardArray[id + 35] = playerTurn
     return
