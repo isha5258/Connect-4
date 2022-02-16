@@ -3,7 +3,9 @@ Connect 4:
 Connect 4 was first released in 1974 by Milton Bradly Company
 
 
+link to app:
 
+https://isha5258.github.io/Connect-4/
 
 
 references
