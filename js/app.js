@@ -168,7 +168,7 @@ function render() {
     messageEl.style.color = '#667D83'
     messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '10px 0 10px black, 20px 0 20px black, 30pxpx 0px 30px black' : ''}`
   } else {
-    messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!!!`
+    messageEl.textContent = `Congratulations, ${winner === 1 ? 'Red' : 'Blue'} Wins!!`
     messageEl.style.color = `${winner === 1 ? '#CC2727' : '#0073BF'}`
     confetti.start(1500)
     messageEl.className = `${winner === 1 || winner === -1 ? 'animate__heartBeat' : ''}`
