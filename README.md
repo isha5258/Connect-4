@@ -36,11 +36,6 @@ Growing up in a small remote town, board games and card games were a staple acti
 
 ### Start of game:
 ![](Assets/start.png)
-
-<br>
-
-### Winner:
-![](Assets/winner.png) 
 <br>
 <br>
 
