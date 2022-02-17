@@ -83,5 +83,6 @@ Growing up in a small remote town, board games and card games were a staple acti
 - Add mobile responsiveness
 - Record previous winners
 - highlight or change color of winning connect 4
+- implement a powerup ability for each player
 
 ---
