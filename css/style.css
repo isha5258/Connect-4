@@ -30,6 +30,7 @@ body {
   align-items: center;
   background: linear-gradient(rgba(57, 57, 57, 0.5), rgba(0, .125, .25, .45)), url(background_wall.jpg);
   background-size: 100%;
+  background-repeat:repeat-y;
 }
 
 main {
