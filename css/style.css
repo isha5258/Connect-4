@@ -42,9 +42,13 @@ main {
 }
 
 #replay-button {
-  margin: 0 115% 0 0;
-  width: 7rem;
+  margin: 4px 90% 0 0;
   font-size: 1.2rem;
+  font-family: 'Press Start 2P', sans-serif;
+  width: 10rem;
+  height: 3vmin;
+  width: 10vmin;
+  font-size: 1vmin;
 }
 
 #info-Btn{
@@ -63,10 +67,12 @@ main {
 
 .popover-header {
   background-color: #B7B7B7;
+  font-family: 'Press Start 2P', sans-serif;
 }
 
 .popover-body {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-family: 'Press Start 2P', sans-serif;
   padding: 1rem 1rem;
   color: #212529;
   border-radius: 0;
@@ -113,8 +119,7 @@ div {
 }
 
 #replay-button {
-  font-family: 'Press Start 2P', sans-serif;
-  width: 10rem;
+  
 }
 
 #replay-button:hover {
