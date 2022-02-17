@@ -11,8 +11,8 @@ html {
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - 
-     in most browser configurations this will be 10px */
+/*  resets font size to be 62.5% of the user preference - 
+    in most browser configurations this will be 10px */
 :root {
   font-size: 62.5%;
 }
@@ -37,7 +37,7 @@ main {
   justify-items: center;
   align-content: center;
   width: auto;
-  height: 100%;
+  height: 100vh;
 }
 
 #replay-button {
@@ -75,7 +75,7 @@ main {
 
 h1 {
   color: #667D83;
-  font-size: 6rem;
+  font-size: 5vmin;
   font-family: 'Press Start 2P', sans-serif;
   text-shadow: 0 0 10px black, 0 0 20px black, 0px 0px
   30px black; 
@@ -84,7 +84,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.4vmin ;
   font-family: 'Press Start 2P', sans-serif;
   text-shadow: 0 0 0 10px black;
   margin-top: 2rem;
