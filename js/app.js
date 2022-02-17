@@ -1,37 +1,36 @@
-// // Create an html template and copy over css starter from course supplement page.
+/** -------------------------------- PseudoCode ------------------------------- */
+// Create an html template and copy over css starter from course supplement page.
 
-// // Create html elements: h1, h2, 42divs, and reset button.
+// Create html elements: h1, h2, 42divs, and reset button.
 
-//// Create a grid in css for chips to be shown in. Similar to tic tac toe, but expanded to a 6row and 7 column grid.
-//// grid-column: repeat (7, )
+// Create a grid in css for chips to be shown in. Similar to tic tac toe, but expanded to a 6row and 7 column grid.
+// grid-column: repeat (7, )
 
-// // State variables in JS.
-////     let winner, playerTurn, boardArray
+// State variables in JS.
+//     let winner, playerTurn, boardArray
 
-// // Add cached elements References.
-// //div ALL squares  
-// //this will be used to determine winner
-// //h2 message 
-// // init () message will say click a square to put first chip
-// // message will then tell whose players turn it is 
+// Add cached elements References.
+//div ALL squares  
+//this will be used to determine winner
+//h2 message 
+// init () message will say click a square to put first chip
+// message will then tell whose players turn it is 
 
-// // Add event listeners for button clicks for replay button and  handleClick events.
-//   // Replay -- on click return game state to init () state
-//   // handleClick -- target evt.target.id (div squares)
+// Add event listeners for button clicks for replay button and  handleClick events.
+  // Replay -- on click return game state to init () state
+  // handleClick -- target evt.target.id (div squares)
 
 // write stated functions (handleclick and init)
 //dont write inside fuctions yet
 
 // console.log everything so far to make sure it's working.
 
-//// Add inital state function and add necessary variables. 
-//    // board array [null, null, etc]
-//    // winner = null
-//    // reset button = hidden
-//    //render()
-////player turn = -1 (player 1)
-
-// console.log
+// Add inital state function and add necessary variables. 
+   // board array [null, null, etc]
+   // winner = null
+   // reset button = hidden
+   //render()
+//player turn = -1 (player 1)
 
 // Add render function
 // iterate over the boardarray and change the html div text to show which squares are who's
@@ -52,21 +51,10 @@
 // there are a lot of winning combos
 //explore winning combos using a objects array to save time
 //or hard code (not advised) this will be very time consuming
-
-
-
-// Possibly use another js file and import this info.
-// Add a winner function to determine if someone has won.
 // If there is a winner,  style with confetti.
-// Confetti colors to mimic winners colors.
-// Add sound effects to column clicks and winner clicks. 
+// Add sound effects to winner clicks. 
 // Add a favicon of something cool.
-// Add dark mode with optional neon lit chips, buttons, and game board.
-// Optional - implement a function that will allow a powerup ability.
-// 1x powerup chance per person. 
-// Swap colors of a single chip if successful.
-// Success will be determined with a Math.floor(Math.random().
-// Optional -  implement an animation that will show the chips fall from the top once the players click the column they want.
+
 /**-------------------- constants ---------------------*/
 const winningCombos = [
   //Horizontal winning combos (Example: -- )
@@ -98,7 +86,7 @@ const winningCombos = [
   [13, 19, 25, 31], [19, 25, 31, 37],
   [20, 26, 32, 38]
 ]
-// console.log(winningCombos);
+
 /**------------------ Variables (state) -------------- */
 let winner, playerTurn, boardArray, player_1, player_2
 
@@ -111,9 +99,6 @@ let board = document.querySelector('.board')
 popover = new bootstrap.Popover(document.querySelector('#info-Btn'), {
   container: 'body'
 })
-// console.log(squares);
-// console.log(messageEl);
-// console.log(replay);
 
 /**------------------- Event Listeners --------------- */
 replay.addEventListener('click', init)
@@ -124,28 +109,18 @@ board.addEventListener('click', handleClick)
 init()
 
 function init() {
-  
-  //make Message return to intial state 
   messageEl.textContent = 'Click a Square to Start'
-  //make boardArray return to null in all its indexes
   boardArray = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-
-  //make winner null
   winner = null
-  // player turn
   playerTurn = 1
-  // hide replay button
   replay.setAttribute('hidden', true)
-  //remove class name from winner message
   messageEl.className = ""
   render()
 }
 
 function render() {
-  // iterate over the boardArray and change the html div text to show which squares are who's
   let squareColor
   boardArray.forEach((square, idx) => {
-
     if (square === 1) {
       squareColor = '#AC0011'
       squares[idx].style.opacity = 1
@@ -158,7 +133,7 @@ function render() {
     }
     squares[idx].style.backgroundColor = squareColor
   })
-  // State of game :
+  // State of game:
   if (!winner) {
     messageEl.textContent = `${playerTurn === 1 ? " Red's" : " Blue's"} turn`
     messageEl.style.textShadow = `${playerTurn === 1 || playerTurn === -1 ?  '0 0 10px black, 0 0 15px black, 0 0 20px black, 0px 0px 30px black, 0 0 40px' : ''}`
@@ -183,7 +158,6 @@ function handleClick(evt) {
     return 
   } 
   let id = parseInt(evt.target.id.replace('sq', ''))
-
   if (boardArray[id] === -1 || boardArray[id] === 1) {
     return
   } else if (winner !== null) {
@@ -193,21 +167,13 @@ function handleClick(evt) {
       chipPosition(id)
     }
   }
-  
   replay.removeAttribute('hidden')
-
   playerTurn *= -1
-
   winner = getWinner()
-  
   render()
 }
 
 function chipPosition(id) {
-  // while (boardArray[id] = null) {
-  //   i - 7;
-  //   console.log(boardArray)
-  // }
   if (boardArray[id + 35] === null) {
     boardArray[id + 35] = playerTurn
     return 
@@ -231,11 +197,9 @@ function chipPosition(id) {
     boardArray[id] = playerTurn
     return
   }
-  console.log(id)
 }
 
 function getWinner() {
-
   for (let i = 0; i < winningCombos.length; i++) {
     if (Math.abs(boardArray[winningCombos[i][0]] + boardArray[winningCombos[i][1]] + boardArray[winningCombos[i][2]] + boardArray[winningCombos[i][3]]) === 4) {
       return boardArray[winningCombos[i][0]]
