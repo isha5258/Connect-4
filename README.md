@@ -60,6 +60,9 @@ Growing up in a small remote town, board games and card games were a staple acti
 ## Credits
 
 - Background photo created by rawpixel.com on www.freepik.com.
+- "Press Start 2P" font found on https://fonts.google.com/
+- animations found on Animation.css
+- popover button was found on getbootstrap.com
 <br>
 <br>
 
