@@ -48,11 +48,11 @@ main {
 }
 
 #info-Btn{
-  margin: 0 0 0 115%;
+  margin: 0 0 0 90%;
   border: 0;
-  height: 3rem;
-  width: 12rem;
-  font-size: .9rem;
+  height: 3vmin;
+  width: 15vmin;
+  font-size: 1vmin;
   popover-font-size: 1rem;
   font-family: 'Press Start 2P', sans-serif;
 }
