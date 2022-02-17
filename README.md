@@ -82,5 +82,6 @@ Growing up in a small remote town, board games and card games were a staple acti
 - Implement a drag and drop feature to place chip
 - Add mobile responsiveness
 - Record previous winners
+- highlight or change color of winning connect 4
 
 ---
