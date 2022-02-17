@@ -118,10 +118,6 @@ div {
   vertical-align: middle;
 }
 
-#replay-button {
-  
-}
-
 #replay-button:hover {
   background-color: white;
   color: black;
@@ -130,5 +126,3 @@ div {
 .animate__fadeInDownBig {
   --animate-duration: .75s;
 }
-/* darkmode */
-/* box-shadow: 1px 1px px 1px #0ff */
