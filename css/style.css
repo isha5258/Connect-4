@@ -49,7 +49,7 @@ main {
 #info-Btn{
   margin: 0 0 0 115%;
   border: 0;
-  height: 4rem;
+  height: 3rem;
   width: 12rem;
   font-size: .9rem;
   popover-font-size: 1rem;
@@ -114,7 +114,12 @@ div {
 
 #replay-button {
   font-family: 'Press Start 2P', sans-serif;
-  width: 10vmin
+  width: 10rem;
+}
+
+#replay-button:hover {
+  background-color: white;
+  color: black;
 }
 
 .animate__fadeInDownBig {
