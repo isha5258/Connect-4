@@ -48,8 +48,8 @@ Growing up in a small remote town, board games and card games were a staple acti
 - HTML
 - CSS
 - Git
-- Animate.css
-- Bootstrap
+- animate.css
+- getbootstrap.com
 - confetti.js
 <br>
 <br>
