@@ -3,7 +3,8 @@
 
 ## To Play the Game
 
-#### click [here](https://connect-4-ih.surge.sh) to play Connect 4.
+#### click <a href="https://connect-4-ih.surge.sh" target="_blank">here</a> to play Connect 4.
+
  _*Note: instructions on how to play can be found within the link._ 
 <br>
 <br>
